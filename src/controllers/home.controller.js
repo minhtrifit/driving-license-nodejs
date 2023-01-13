@@ -10,7 +10,7 @@ class HomeController {
     showLogin(req, res, next) {
         try {
             res.render('viewLogin', {
-                layout: 'main',
+                layout: 'mainLogin',
             })
 
         } catch (error) {
