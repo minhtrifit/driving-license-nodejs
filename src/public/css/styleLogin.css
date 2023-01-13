@@ -115,10 +115,12 @@
     height: 50px;
     border: 0px;
     background-color: #f2f2f2;
+    font-size: 13px;
 }
 
 .loginForm input:focus {
     outline: none;
+    font-size: 15px;
 }
 
 /* Responsive */
