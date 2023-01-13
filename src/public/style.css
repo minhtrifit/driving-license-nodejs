@@ -1,0 +1,7 @@
+.block {
+    width: 50vw;
+    min-height: 50vh;
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+}
