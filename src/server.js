@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 
 const route = require('./routes/index.js');
 const sessionConfig = require('./config/session.js');
+const viewEngineConfig = require('./config/viewEngineConfig.js');
 const passport = require('passport');
 
 //=====================================================================
@@ -20,16 +21,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());
 sessionConfig(app);
 
-
 //=====================================================================
 
-app.engine('hbs', handlebars.engine({
-    extname: '.hbs',
-}));
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
-
-//=====================================================================
+// Setup view engine
+viewEngineConfig(app);
 
 // Khai báo passport
 app.use(passport.initialize());

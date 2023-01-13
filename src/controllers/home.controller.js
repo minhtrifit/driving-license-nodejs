@@ -101,7 +101,6 @@ class HomeController {
 
                 res.render('viewDashboard', {
                     layout: 'main',
-                    username: userRecord.username
                 })
             }
 

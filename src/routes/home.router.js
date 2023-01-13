@@ -15,16 +15,8 @@ initPassportLocal();
 // Route đăng nhập, đăng ký (Route mặc định là trang đăng nhập)
 router.get('/', homeController.showLogin);
 router.post('/login', homeController.showConfirmLogin);
-// router.post('/login', passport.authenticate('local', {
-//     successRedirect: '/dashboard', // Đăng nhập thành công thì chuyển tới trang chủ
-//     failureRedirect: '/', // Đăng nhập thất bại thì trở lại trang đăng nhập
-// }));
-
 router.get('/register', homeController.showRegister);
 router.post('/register', homeController.showConfirmRegister);
-
-
-// Route đăng xuất
 router.post('/logout', homeController.postLogout);
 
 // Route trang chủ, ....
