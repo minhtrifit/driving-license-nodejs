@@ -23,7 +23,24 @@ loginBtn.addEventListener('click', (e) => {
         alert('Nhập tài khoản và mật khẩu trước khi đăng nhập!');
     }
     else {
-
+        $.ajax({
+            url: '/login',
+            type: 'POST',
+            data: {
+                'username': usernameInput.value,
+                'password': passwordInput.value
+            },
+            success: (data) => {
+                console.log('Post successfully!');
+                console.log('Login response:', data);
+                if(data == 'Sai tài khoản hoặc mật khẩu!') {
+                    alert(data);
+                }
+                else {
+                    window.location.href = "/dashboard";
+                }        
+            }
+        })
     }
 })
 

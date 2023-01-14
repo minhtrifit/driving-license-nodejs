@@ -11,9 +11,9 @@ function initPassportLocal() {
     }, async (req, username, password, done) => {
         try {
             var checkuser = await db.getUserByUsername(username);
-            console.log('Check user:', checkuser);
+            // console.log('Check user:', checkuser);
 
-            var userList = await db.getAllUsers();
+            var userList = await db.getAllAccounts();
             for (var i = 0; i < userList.length; ++i) {
                 if (userList[i].username == username) {
                     var userRecord = userList[i];
@@ -28,10 +28,12 @@ function initPassportLocal() {
                 // Tìm thấy username => Kiểm tra password
                 if (await bcrypt.compare(password, userRecord.password)) {
                     // Nếu đúng password
+                    console.log('Password correct!');
                     return done(null, userRecord);
                 }
                 else {
                     // Nếu sai password
+                    console.log('Password incorrect!');
                     return done(null, false);
                 }
             }

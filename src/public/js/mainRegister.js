@@ -3,6 +3,8 @@ const nameInput = document.querySelector('.name');
 const usernameInput = document.querySelector('.username');
 const passwordInput = document.querySelector('.password');
 const repasswordInput = document.querySelector('.repassword');
+const MAX_VALUE = 9999;
+const MIN_VALUE = 1000;
 
 function showRegisterBtn() {
     nameInput.addEventListener('input', () => {
@@ -28,7 +30,7 @@ function checkInput() {
     if (usernameInput.value == '') { warningString += 'tên đăng nhập, '; }
     if (passwordInput.value == '') { warningString += 'mật khẩu, '; }
     if (repasswordInput.value == '') { warningString += 'xác nhận mật khẩu '; }
-    warningString += 'trước khi đăng nhập!';
+    warningString += 'trước khi đăng ký!';
     return warningString;
 }
 
@@ -55,20 +57,24 @@ registerBtn.addEventListener('click', (e) => {
             alert('Mật khẩu và xác nhận mật khẩu không khớp!');
         }
         else {
-            alert('ok');
-            // $.ajax({
-            //     url: '/register',
-            //     type: 'POST',
-            //     data: {
-            //         'username': usernameInput.value,
-            //         'password': passwordInput.value,
-            //     },
-            //     success: (data) => {
-            //         console.log('Post successfully!');
-            //         alert(data);
-            //         // window.location.href = "/";
-            //     }
-            // })
+            const randomID = Math.floor(Math.random() * (MAX_VALUE - MIN_VALUE)) + MIN_VALUE;
+
+            $.ajax({
+                url: '/register',
+                type: 'POST',
+                data: {
+                    'id': randomID,
+                    'name': nameInput.value,
+                    'username': usernameInput.value,
+                    'password': passwordInput.value,
+                    'type': 'USER'
+                },
+                success: (data) => {
+                    console.log('Post successfully!');
+                    alert(data);
+                    // window.location.href = "/";
+                }
+            })
         }
     }
 })

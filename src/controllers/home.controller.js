@@ -21,16 +21,18 @@ class HomeController {
     showConfirmLogin(req, res, next) {
         passport.authenticate('local', { session: true }, (err, user) => {     
             if (err || !user) {
-                return res.send("Wrong username or password");
+                return res.send('Sai tài khoản hoặc mật khẩu!');
             }
             else {
                 req.logIn(user, (err) => {
+                    // Đăng nhập thất bại
                     if (err) {
                         next(err);
-                    } 
+                    }
+                    // Đăng nhập thành công 
                     else {
-                        console.log('Check user:', user);
-                        res.redirect('/dashboard');
+                        return res.send('Đăng nhập thành công!');
+                        // res.redirect('/dashboard');
                     }
                 });
             }
@@ -50,30 +52,48 @@ class HomeController {
 
     async showConfirmRegister(req, res, next) {
         try {
+            const list = await db.getAllAccounts();
             var checkUser = true;
+
             const user = {
+                id: req.body.id,
+                name: req.body.name,
                 username: req.body.username,
-                password: req.body.password
+                password: req.body.password,
+                type: req.body.type
             }
             const hashedPassword = await bcrypt.hash(user.password, 10);
             user.password = hashedPassword;
-            user.repassword = hashedPassword;
-            // console.log(user);
 
-            const list = await db.getAllUsers();
-
+            // Nếu tài khoản đã tồn tại
             for (var i = 0; i < list.length; ++i) {
                 if (list[i].username == user.username) {
-                    console.log('Username has already exist!!!');
                     checkUser = false;
-                    res.send('Username has already exist');
+                    res.send('Tên đăng nhập đã tồn tại!');
                 }
             }
 
+            // Kiểm tra ID đã tồn tại chưa
+            var checkUserID = true;
+            while(true) {
+                checkUserID = true;
+                for (var i = 0; i < list.length; ++i) {
+                    // Nếu đã tồn tại thì tạo mới
+                    if (list[i].id == user.id) {
+                        checkUserID = false;
+                        var randomID = Math.floor(Math.random() * (parseInt(process.env.MAX_VALUE) - parseInt(process.env.MIN_VALUE))) + parseInt(process.env.MIN_VALUE);
+                    }
+                }
+
+                if(checkUserID == true) {
+                    break;
+                }
+            }
+
+            // Nếu tài khoản chưa tồn tại
             if (checkUser == true) {
-                await db.createNewUser(user);
-                res.send('Successfully');
-                // res.redirect('/');
+                await db.createNewUserAccount(user);
+                res.send('Đăng ký tài khoản thành công!');
             }
 
         } catch (error) {
@@ -98,9 +118,11 @@ class HomeController {
             else {
                 // Nếu đã đăng nhập thành công
                 const userRecord = req.session.passport.user;
+                console.log('Dashboard user:', userRecord);
 
                 res.render('viewDashboard', {
-                    layout: 'main',
+                    layout: 'mainDashboard',
+                    user: userRecord,
                 })
             }
 
