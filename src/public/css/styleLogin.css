@@ -5,69 +5,72 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.main {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
     background-color: #363636;
 }
 
-.content {
-    width: 80vw;
-    height: 70vh;
+.main {
+    width: 90vw;
+    height: 80vh;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    border: 1px solid #fff;
 }
 
-.content .left-content {
-    width: 30%;
+.main .left-content {
+    width: 25%;
     height: 100%;
-    background-color: #fff;
     display: flex;
     align-items: center;
 }
 
-.content .right-content {
-    width: 70%;
+.main .right-content {
+    width: 75%;
     height: 100%;
 }
 
-.content .right-content img {
+.main .right-content img {
     width: 100%;
     height: 100%;
 }
 
 .loginForm {
-    height: 60%;
     width: 100%;
-    margin: auto auto;
+    height: 70%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    justify-content: space-between;
 }
 
 .loginForm .formTop {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 90%;
+    height: 40%;
 }
 
 .loginForm .formTop input {
-    margin: 10px 0;
+    width: 100%;
+    height: 40px;
+    margin: 10px auto;
     padding: 10px 10px;
-    border-radius: 5px;
+    font-size: 13px;
+    border: 0px;
+    background-color: #f2f2f2;
+}
+
+.loginForm .formTop input:focus {
+    outline: none;
+    font-size: 15px;
 }
 
 .loginForm .formBot {
-    width: 60%;
-    height: 30%;
+    width: 230px;
+    height: 20%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -110,35 +113,13 @@
     background-color: #a32c2e;
 }
 
-.loginForm input {
-    width: 85%;
-    height: 50px;
-    border: 0px;
-    background-color: #f2f2f2;
-    font-size: 13px;
-}
-
-.loginForm input:focus {
-    outline: none;
-    font-size: 15px;
-}
-
 /* Responsive */
-@media all and (max-width: 768px) {
-    .content {
-        width: 70vw;
-    }
-
-    .loginForm .formBot {
-        height: 40%;
-        flex-direction: column;
-    }
-
-    .content .left-content {
+@media all and (max-width: 1200px) {
+    .main .left-content {
         width: 100%;
     }
 
-    .content .right-content {
+    .main .right-content {
         display: none;
     }
 }

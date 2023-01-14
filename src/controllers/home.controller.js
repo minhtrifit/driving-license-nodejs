@@ -120,6 +120,8 @@ class HomeController {
                 const userRecord = req.session.passport.user;
                 console.log('Dashboard user:', userRecord);
 
+                console.log('Check query:', req.query);
+
                 res.render('viewDashboard', {
                     layout: 'mainDashboard',
                     user: userRecord,
