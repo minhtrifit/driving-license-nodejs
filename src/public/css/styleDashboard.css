@@ -53,6 +53,19 @@ body {
     margin-top: 10px;
 }
 
+.right-content .top .banner {
+    width: 70%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: red; */
+}
+
+.right-content .top .banner img {
+    width: 50px;
+    height: 50px;
+}
+
 .left-content .middle {
     width: 70%;
     height: 50%;
@@ -137,9 +150,13 @@ body {
     align-items: center;
 }
 
+.swiper-slide:hover {
+    cursor: pointer;
+}
+
 .swiper-slide .box img {
     display: block;
-    width: 75%;
+    width: 70%;
     height: 45%;
     object-fit: cover;
     /* background-color: blue; */
@@ -157,16 +174,12 @@ body {
 
 .swiper-slide .box .title {
     width: 90%;
-    min-height: 140px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    min-height: 100px;
     margin-top: 10px;
     /* background-color: green; */
 }
 
-.swiper-slide .box .title .startBtn {
+.swiper-slide .box .startBtn {
     width: 120px;
     height: 50px;
     background-color: #3643d1;
@@ -176,11 +189,11 @@ body {
     justify-self: flex-end;
 }
 
-.swiper-slide .box .title .startBtn:hover {
+.swiper-slide .box .startBtn:hover {
     background-color: #2e39b3;
 }
 
-.swiper-slide .box .title a {
+.swiper-slide .box a {
     text-decoration: none;
     color: #fff;
 }

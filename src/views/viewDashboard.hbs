@@ -1,6 +1,15 @@
 <div class="right-content">
     <div class="top">
-        <h3 style="text-align: center; font-weight: bold;">HỆ THỐNG BÀI THI TRẮC NGHIỆM BẰNG LÁI XE</h3>
+        <h3 style="text-align: center; font-weight: bold; margin-top: 20px;">HỆ THỐNG BÀI THI TRẮC NGHIỆM BẰNG LÁI XE</h3>
+        <div class="banner">
+            <img src="image/logo/1.png" alt="yamaha" style="width: 110px; height: 60px;">
+            <img src="image/logo/2.png" alt="honda">
+            <img src="image/logo/3.png" alt="bmw">
+            <img src="image/logo/4.png" alt="mercedes">
+            <img src="image/logo/5.png" alt="lamborghini">
+            <img src="image/logo/6.png" alt="ktm">
+            <img src="image/logo/7.png" alt="ducati">
+        </div>
     </div>
     <div class="middle">
         <p style="font-size: 25px; font-weight: bold; margin-left: 20px;">Danh sách các bài thi:</p>
@@ -13,13 +22,14 @@
                         <img src="image/license/{{ level }}.png" alt="">
                         <div class="title">
                             <p>{{ description }}</p>
-                            <div class="startBtn"><a href="/exam/A1">Bắt đầu thi</a></div>
                         </div>
+                        <div class="startBtn"><a href="/exam/{{ level }}">Bắt đầu thi</a></div>
                     </div>
                 </div>
                 {{/each}}
             </div>
             <div class="swiper-pagination"></div>
         </div>
+        <p style="font-size: 15px; color: red; font-style: italic; margin-top: 50px; margin-left: 20px;">Mẹo: Trượt ngang bằng chuột để xem danh sách</p>
     </div>
 </div>
