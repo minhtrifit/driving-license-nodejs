@@ -1,16 +1,9 @@
-console.log('Test main script!!!');
-const block = document.querySelector('.block');
 
-block.addEventListener('click', (e) => {
-    $.ajax({
-        url: '/dashboard',
-        type: 'GET',
-        data: {
-            'number': 1
-        },
-        success: (data) => {
-            console.log('Post successfully!');
-            console.log(data);       
-        }
-    })
-})
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});

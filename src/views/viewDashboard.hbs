@@ -3,27 +3,23 @@
         <h3 style="text-align: center; font-weight: bold;">HỆ THỐNG BÀI THI TRẮC NGHIỆM BẰNG LÁI XE</h3>
     </div>
     <div class="middle">
-        <div class="course-list">
-            <div class="block">
+        <p style="font-size: 25px; font-weight: bold; margin-left: 20px;">Danh sách các bài thi:</p>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {{#each license}}
+                <div class="swiper-slide">
+                    <div class="box">
+                        <p style="font-size: 20px; font-weight: bold;">{{ name }}</p>
+                        <img src="image/license/{{ level }}.png" alt="">
+                        <div class="title">
+                            <p>{{ description }}</p>
+                            <div class="startBtn"><a href="/exam/A1">Bắt đầu thi</a></div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
             </div>
-            <div class="block">
-            </div>
-            <div class="block">
-            </div>
-            <div class="block">
-            </div>
-            <div class="block">
-            </div>
-            <div class="block">
-            </div>
-            <div class="block">
-            </div>
-            <div class="block">
-            </div>
-            <div class="block">
-            </div>
-            <div class="block">
-            </div>
+            <div class="swiper-pagination"></div>
         </div>
     </div>
 </div>

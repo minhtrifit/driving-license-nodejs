@@ -118,13 +118,13 @@ class HomeController {
             else {
                 // Nếu đã đăng nhập thành công
                 const userRecord = req.session.passport.user;
-                console.log('Dashboard user:', userRecord);
-
-                console.log('Check query:', req.query);
+                const licenseList = await db.getAllLicenses();
+                // console.log('Dashboard user:', userRecord);
 
                 res.render('viewDashboard', {
                     layout: 'mainDashboard',
                     user: userRecord,
+                    license: licenseList,
                 })
             }
 

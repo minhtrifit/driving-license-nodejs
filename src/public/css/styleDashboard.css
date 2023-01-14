@@ -101,32 +101,86 @@ body {
 .right-content .top {
     width: 100%;
     min-height: 20%;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .right-content .middle {
     width: 100%;
     min-height: 80%;
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
-    justify-content: center; 
+    flex-direction: column;
 }
 
-.right-content .middle .course-list {
+.swiper {
     width: 90%;
-    height: 100%;
-    display: grid;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: auto;
+    height: 70%;
 }
 
-.block {
-    display: block;
-    float: left;
-    width: 280px;
-    height: 300px;
-    background-color: green;
+.swiper-slide {
+    text-align: center;
+    background: #fff;
     border: 1px solid #000;
-    margin: 5px 5px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide .box img {
+    display: block;
+    width: 75%;
+    height: 45%;
+    object-fit: cover;
+    /* background-color: blue; */
+}
+
+.swiper-slide .box {
+    width: 100%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.swiper-slide .box .title {
+    width: 90%;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+    /* background-color: green; */
+}
+
+.swiper-slide .box .title .startBtn {
+    width: 120px;
+    height: 50px;
+    background-color: #3643d1;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    justify-self: flex-end;
+}
+
+.swiper-slide .box .title .startBtn:hover {
+    background-color: #2e39b3;
+}
+
+.swiper-slide .box .title a {
+    text-decoration: none;
+    color: #fff;
 }
