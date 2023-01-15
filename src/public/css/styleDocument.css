@@ -113,117 +113,43 @@ body {
 
 .right-content .top {
     width: 100%;
-    min-height: 20%;
+    min-height: 40%;
     /* background-color: red; */
 }
 
 .right-content .middle {
     width: 100%;
-    min-height: 80%;
-    /* background-color: blue; */
+    min-height: 60%;
     display: flex;
     flex-direction: column;
+    /* background-color: blue; */
 }
 
-.swiper {
+.right-content .middle .main {
     width: 90%;
-    height: 70%;
-}
-
-.swiper-slide {
-    text-align: center;
-    background: #fff;
-    border: 1px solid #000;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+    min-height: auto;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
-.swiper-slide:hover {
-    cursor: pointer;
-}
-
-.swiper-slide .box img {
-    display: block;
-    width: 70%;
-    height: 45%;
-    object-fit: cover;
-    /* background-color: blue; */
-}
-
-.swiper-slide .box {
-    width: 100%;
-    height: 98%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex-wrap: wrap;
+    overflow:auto;
+    align-self: center;
     /* background-color: red; */
 }
 
-.swiper-slide .box .title {
-    width: 90%;
-    min-height: 100px;
-    margin-top: 10px;
-    /* background-color: green; */
-}
-
-.swiper-slide .box .startBtn {
-    width: 120px;
-    height: 50px;
-    background-color: #3643d1;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 5px;
-    justify-self: flex-end;
-}
-
-.swiper-slide .box .startBtn:hover {
-    background-color: #2e39b3;
-}
-
-.swiper-slide .box a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.backBtn {
-    width: 120px;
-    height: 50px;
-    background-color: #3643d1;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 5px;
-    align-self: center;
+.right-content .middle .main a .block {
+    width: 220px;
+    height: 300px;
+    margin-left: 20px;
     margin-top: 20px;
 }
 
-/* Comming soon page */
-.warning {
-    width: 48%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-self: center;
-    /* background-color: red; */
+.right-content .middle .main a .block img {
+    width: 100%;
+    height: 100%;
+    transition: transform .2s;
+    background-color: red;
 }
 
-.backBtn:hover {
-    background-color: #2e39b3;
-}
-
-.backBtn a {
-    color: #fff;
-    text-decoration: none;
+.right-content .middle .main a .block img:hover {
+    transform: translatey(-5%);
+    border: 2px solid #d13639;
 }

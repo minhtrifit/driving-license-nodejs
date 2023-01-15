@@ -1,0 +1,19 @@
+<div class="left-content">
+    <div class="top">
+        <img src="../image/avatar.png" alt="">
+        <div class="title">
+            <p style="text-align: center;">Thí sinh: {{ user.name }}</p>
+            <p style="text-align: center;">Mã số: {{ user.id }}</p>
+        </div>
+    </div>
+    <div class="middle">
+        <p><a href="/dashboard">Trang chủ</a></p>
+        <p><a href="/document">Tài liệu tham khảo</a></p>
+        <p><a href="/history">Lịch sử thi</a></p>
+    </div>
+    <div class="bottom">
+        <form method="POST" action="/logout">
+            <button type="submit" class="logoutBtn">Đăng xuất</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="right-content">
+    <div class="top">
+        <h3 style="text-align: center; font-weight: bold; margin-top: 20px;">QUY ĐỊNH NỘI DUNG THI TRẮC NGHIỆM</h3>
+        <div class="banner">
+            <table class="table" style="border: 1px solid #000">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Giấy phép lái xe</th>
+                        <th scope="col">Số câu hỏi</th>
+                        <th scope="col">Thời gian làm bài (phút)</th>
+                        <th scope="col">Đạt yêu cầu (câu)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Hạng A1</td>
+                        <td>25</td>
+                        <td>15</td>
+                        <td>21/25</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Hạng A2</td>
+                        <td>25</td>
+                        <td>15</td>
+                        <td>23/25</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Hạng B1</td>
+                        <td>30</td>
+                        <td>17</td>
+                        <td>27/30</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Hạng B2</td>
+                        <td>36</td>
+                        <td>20</td>
+                        <td>32/35</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="middle">
+        <p style="font-size: 25px; font-weight: bold; margin-left: 20px;">Danh sách tài liệu:</p>
+        <div class="main">
+            {{#each license}}
+            <a href="/document/{{ level }}">
+                <div class="block">
+                    <img src="image/document/{{ level }}.png" alt="">
+                </div>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</div>

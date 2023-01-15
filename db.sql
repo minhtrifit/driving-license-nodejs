@@ -105,7 +105,7 @@ CREATE TABLE "license" (
 ;
 
 -- ----------------------------
--- Records of accounts
+-- Records of license
 -- ----------------------------
 BEGIN;
 INSERT INTO "license" VALUES ('A1', 'Bằng lái xe máy hạng A1', 'Cấp cho người lái xe để điều khiển xe mô tô hai bánh có dung tích xy lanh từ 50 cm3 đến dưới 175 cm3.');
