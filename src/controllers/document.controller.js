@@ -38,10 +38,23 @@ class DocumentController {
             else {
                 const userRecord = req.session.passport.user;
                 const licenseList = await db.getAllLicenses();
+                const questionList = await db.getAllQuestion();
                 const targetLevel = req.params.level;
+                var targetLicense;
+
+                for(var i = 0; i < licenseList.length; ++i) {
+                    if(licenseList[i].level == targetLevel) {
+                        targetLicense = licenseList[i];
+                    }
+                }
 
                 if(targetLevel == 'A1') {
-                    res.send('ok');
+                    res.render('viewDetailDocument', {
+                        layout: 'mainDetailDocument',
+                        user: userRecord,
+                        license: targetLicense,
+                        list: questionList,
+                    })
                 }
                 else {
                     res.render('viewCommingSoon', {
@@ -49,6 +62,42 @@ class DocumentController {
                         user: userRecord,
                     })
                 }
+            }
+            
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async showConfirmDetailDocument(req, res, next) {
+        try {
+            if(!req.isAuthenticated()) {
+                res.redirect('/');
+            }
+            else {
+                const userRecord = req.session.passport.user;
+                const licenseList = await db.getAllLicenses();
+                const questionList = await db.getAllQuestion();
+                const targetLevel = req.params.level;
+                var targetLicense;
+                var targetQuestionList = [];
+
+                // Lọc bằng lái
+                for(var i = 0; i < licenseList.length; ++i) {
+                    if(licenseList[i].level == targetLevel) {
+                        targetLicense = licenseList[i];
+                    }
+                }
+
+                // Lọc các câu hỏi
+                for(var i = 0; i < questionList.length; ++i) {
+                    if(questionList[i].level == targetLicense.level) {
+                        targetQuestionList.push(questionList[i]);
+                    }
+                }
+
+
+                res.send(targetQuestionList);
             }
             
         } catch (error) {

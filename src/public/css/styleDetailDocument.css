@@ -54,13 +54,11 @@ body {
 }
 
 .right-content .top .banner {
-    width: 75%;
-    height: 40%;
+    width: 70%;
     margin: 20px auto;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    /* background-color: gray; */
+    /* background-color: red; */
 }
 
 .right-content .top .banner img {
@@ -115,110 +113,45 @@ body {
 
 .right-content .top {
     width: 100%;
-    min-height: 20%;
+    min-height: 10%;
     /* background-color: red; */
 }
 
 .right-content .middle {
     width: 100%;
-    min-height: 80%;
-    /* background-color: blue; */
+    min-height: 90%;
     display: flex;
     flex-direction: column;
+    /* background-color: blue; */
 }
 
-.swiper {
-    width: 90%;
-    height: 70%;
-}
-
-.swiper-slide {
-    text-align: center;
-    background: #fff;
-    border: 1px solid #000;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
-.swiper-slide:hover {
-    cursor: pointer;
-}
-
-.swiper-slide .box img {
-    display: block;
+.right-content .middle .box {
     width: 70%;
-    height: 45%;
-    object-fit: cover;
-    /* background-color: blue; */
-}
-
-.swiper-slide .box {
-    width: 100%;
-    height: 98%;
+    min-height: 90%;
+    align-self: center;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     /* background-color: red; */
 }
 
-.swiper-slide .box .title {
-    width: 90%;
-    min-height: 100px;
-    margin-top: 10px;
-    /* background-color: green; */
-}
-
-.swiper-slide .box .startBtn {
-    width: 120px;
-    height: 50px;
-    background-color: #3643d1;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 5px;
-    justify-self: flex-end;
-}
-
-.swiper-slide .box .startBtn:hover {
-    background-color: #2e39b3;
-}
-
-.swiper-slide .box a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.backBtn {
-    width: 120px;
-    height: 50px;
-    background-color: #3643d1;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 5px;
-    align-self: center;
-    margin-top: 20px;
-}
-
-/* Comming soon page */
-.warning {
-    width: 40%;
+.right-content .middle .box .bar {
+    width: 70%;
+    height: 10%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    align-self: center;
+    margin-left: 200px;
     /* background-color: red; */
+}
+
+.backBtn {
+    width: 100px;
+    height: 40px;
+    background-color: #3643d1;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
 }
 
 .backBtn:hover {
@@ -228,4 +161,48 @@ body {
 .backBtn a {
     color: #fff;
     text-decoration: none;
+}
+
+.form-select {
+    width: 40%;
+    margin-left: 30%;
+}
+
+.question-content {
+    width: 90%;
+    min-height: 80%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.question-content .title {
+    width: 100%;
+    min-height: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.question-content .title div {
+    display: inline;
+}
+
+.question-content .choose {
+    width: 100%;
+    min-height: 35%;
+    /* background-color: blue; */
+}
+
+.question-content .choose .ans {
+    color: red;
+}
+
+.question-content .title img {
+    width: 150px;
+    max-height: 200px;
 }

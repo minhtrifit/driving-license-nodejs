@@ -15,6 +15,10 @@ async function getAllLicenses() {
   return rs;
 }
 
+async function getAllQuestion() {
+  const rs = await db.any('SELECT * FROM "questions"');
+  return rs;
+}
 
 async function getOnlyUserAccount(type) {
   const rs = await db.one('SELECT * FROM "accounts" WHERE type = $1', [type]);
@@ -39,5 +43,5 @@ async function createNewUserAccount(user) {
 // }
 
 module.exports = {
-  getAllAccounts, createNewUserAccount, getOnlyUserAccount, getUserByUsername, getAllLicenses
+  getAllAccounts, createNewUserAccount, getOnlyUserAccount, getUserByUsername, getAllLicenses, getAllQuestion
 }

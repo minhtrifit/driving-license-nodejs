@@ -14,6 +14,7 @@ initPassportLocal();
 
 router.get('/', DocumentController.showDocumentPage);
 router.get('/:level', DocumentController.showDetailDocument);
+router.post('/:level', DocumentController.showConfirmDetailDocument);
 
 
 module.exports = router;
