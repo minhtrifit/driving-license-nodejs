@@ -1,0 +1,21 @@
+<div class="right-content">
+    <div class="top">
+        <p class="licenseLevel" hidden>{{ license.level }}</p>
+    </div>
+    <div class="middle">
+        <div class="box">
+            <h3 style="text-align: center; font-weight: bold; margin-top: 20px; text-transform: uppercase;">THÔNG TIN THÍ SINH</h3>
+            <img src="../image/avatar.png" alt="">
+            <div class="main">
+                <p>Họ và tên: {{ user.name }}</p>
+                <p id="{{ user.id }}" class="userId">Số báo danh: {{ user.id }}</p>
+                <p>Nội dung thi: {{ license.name }}</p>
+                <p id="{{ date }}" class="date">Ngày thi: {{ date }}</p>
+                <div class="option">
+                    <div class="confirmBtn"><a href="#">Xác nhận</a></div>
+                    <div class="backBtn"><a href="/dashboard">Quay lại</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
