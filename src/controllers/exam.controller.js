@@ -80,9 +80,7 @@ class ExamController {
                     }
                 }
 
-                res.render('viewCommingSoon', {
-                    layout: 'mainCommingSoon',
-                })
+                res.send(examContent);
             }
 
         } catch (error) {
