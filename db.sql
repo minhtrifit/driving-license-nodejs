@@ -17,6 +17,51 @@ CREATE TABLE "accounts" (
 ALTER TABLE "accounts" ADD CONSTRAINT "PK_Accounts" PRIMARY KEY ("id");
 
 -- ----------------------------
+-- Table structure for license
+-- ----------------------------
+DROP TABLE IF EXISTS "license";
+CREATE TABLE "license" (
+  "level" varchar(10) NOT NULL,
+  "name" varchar(100) NOT NULL,
+  "description" varchar(255) NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of license
+-- ----------------------------
+BEGIN;
+INSERT INTO "license" VALUES ('A1', 'Bằng lái xe máy hạng A1', 'Cấp cho người lái xe để điều khiển xe mô tô hai bánh có dung tích xy lanh từ 50 cm3 đến dưới 175 cm3.');
+INSERT INTO "license" VALUES ('A2', 'Bằng lái xe máy hạng A2', 'Cấp cho người lái xe để điều khiển xe mô tô hai bánh có dung tích xy lanh từ 175 cm3 trở lên và các loại xe quy định cho giấy phép lái xe hạng A1.');
+INSERT INTO "license" VALUES ('B1', 'Bằng lái xe ôtô hạng B1', 'Cấp cho người lái xe để điều khiển các xe số tự động 9 chỗ, dưới 3.5 tấn');
+INSERT INTO "license" VALUES ('B2', 'Bằng lái xe ôtô hạng B2', 'Cấp cho người lái xe để điều khiển các xe số sàn 9 chỗ, hành nghề lái xe thương mại');
+COMMIT;
+
+-- ----------------------------
+-- Primary Key structure for table license
+-- ----------------------------
+ALTER TABLE "license" ADD CONSTRAINT "PK_License" PRIMARY KEY ("level");
+
+-- ----------------------------
+-- Table structure for result
+-- ----------------------------
+DROP TABLE IF EXISTS "result";
+CREATE TABLE "result" (
+  "id" int4 NOT NULL,
+  "userID" int4 NOT NULL,
+  "level" varchar(10) NOT NULL,
+  "licenseName" varchar(100) NOT NULL,
+  "date" date,
+  "result" varchar(10) NOT NULL
+)
+;
+
+-- ----------------------------
+-- Primary Key structure for table result
+-- ----------------------------
+ALTER TABLE "result" ADD CONSTRAINT "PK_result" PRIMARY KEY ("id");
+
+-- ----------------------------
 -- Table structure for questions
 -- ----------------------------
 DROP TABLE IF EXISTS "questions";
@@ -32,7 +77,7 @@ CREATE TABLE "questions" (
 ;
 
 -- ----------------------------
--- Records of accounts
+-- Records of questions
 -- ----------------------------
 BEGIN;
 -- INSERT INTO "questions" VALUES (1, 'A1', 'TEXT', 'NO', '', ARRAY ['','',''], '');
@@ -92,29 +137,3 @@ COMMIT;
 -- Primary Key structure for table questions
 -- ----------------------------
 ALTER TABLE "questions" ADD CONSTRAINT "PK_Questions" PRIMARY KEY ("id");
-
--- ----------------------------
--- Table structure for license
--- ----------------------------
-DROP TABLE IF EXISTS "license";
-CREATE TABLE "license" (
-  "level" varchar(10) NOT NULL,
-  "name" varchar(100) NOT NULL,
-  "description" varchar(255) NOT NULL
-)
-;
-
--- ----------------------------
--- Records of license
--- ----------------------------
-BEGIN;
-INSERT INTO "license" VALUES ('A1', 'Bằng lái xe máy hạng A1', 'Cấp cho người lái xe để điều khiển xe mô tô hai bánh có dung tích xy lanh từ 50 cm3 đến dưới 175 cm3.');
-INSERT INTO "license" VALUES ('A2', 'Bằng lái xe máy hạng A2', 'Cấp cho người lái xe để điều khiển xe mô tô hai bánh có dung tích xy lanh từ 175 cm3 trở lên và các loại xe quy định cho giấy phép lái xe hạng A1.');
-INSERT INTO "license" VALUES ('B1', 'Bằng lái xe ôtô hạng B1', 'Cấp cho người lái xe để điều khiển các xe số tự động 9 chỗ, dưới 3.5 tấn');
-INSERT INTO "license" VALUES ('B2', 'Bằng lái xe ôtô hạng B2', 'Cấp cho người lái xe để điều khiển các xe số sàn 9 chỗ, hành nghề lái xe thương mại');
-COMMIT;
-
--- ----------------------------
--- Primary Key structure for table license
--- ----------------------------
-ALTER TABLE "license" ADD CONSTRAINT "PK_License" PRIMARY KEY ("level");

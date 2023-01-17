@@ -80,6 +80,15 @@ function getContentQuestion(numberList, sourceList) {
     return resultList;
 }
 
+function checkInitResultID(id, list) {
+    for (var i = 0; i < list.length; ++i) {
+        if (list[i].id == id) {
+            return true;
+        }
+    }
+    return false;
+}
+
 class ExamController {
     async showInfoConfirm(req, res, next) {
         try {
@@ -181,7 +190,7 @@ class ExamController {
                             ++count;
                         }
                     }
-                    while (count < 15);
+                    while (count < 20);
                     count = 0;
 
                     questionIdList = mergeTwoRandom(textList, imageList);
@@ -194,7 +203,7 @@ class ExamController {
                 }
 
                 examContent = {
-                    'amount': 20,
+                    'amount': 25,
                     'questions': targetQuestionList,
                 }
 
@@ -217,6 +226,8 @@ class ExamController {
                 const licenseLevel = req.body.level;
                 const userRecord = req.session.passport.user;
                 const dbList = await db.getAllQuestion();
+                const resultList = await db.getAllResult();
+                const licenseList = await db.getAllLicenses();
                 var point = 0;
                 var eliminated = false;
                 const myDate = new Date();
@@ -235,17 +246,17 @@ class ExamController {
                             // Nếu là câu hỏi loại trực tiếp
                             if (dbList[j].eliminated == 'YES') {
                                 if (userAnsList[i].ans == dbList[j].ans) {
-                                    console.log(parseInt(userAnsList[i].id), 'CORRECT');
+                                    // console.log(parseInt(userAnsList[i].id), 'CORRECT');
                                     ++point;
                                 }
                                 else { eliminated = true; }
                             }
                             else {
                                 if (userAnsList[i].ans == dbList[j].ans) {
-                                    console.log(parseInt(userAnsList[i].id), 'CORRECT');
+                                    // console.log(parseInt(userAnsList[i].id), 'CORRECT');
                                     ++point;
                                 }
-                                else { console.log(parseInt(userAnsList[i].id), 'WRONG'); }
+                                // else { console.log(parseInt(userAnsList[i].id), 'WRONG'); }
                             }
                         }
                     }
@@ -271,6 +282,45 @@ class ExamController {
                 }
 
                 console.log(resultForm);
+
+                // Tạo object để lưu vào database
+                var maxResultId = 9999;
+                var minResultId = 1000;
+                var randromResultId;
+
+                // Tạo id ngẫu nhiên cho result
+                do {
+                    randromResultId = Math.floor(Math.random() * (maxResultId - minResultId + 1)) + minResultId;
+                }
+                while (checkInitResultID(randromResultId, resultList) == true);
+
+                // Lấy tên loại bằng lái
+                var licenseName = '';
+                for (var i = 0; i < licenseList.length; ++i) {
+                    if (licenseList[i].level == licenseLevel) { licenseName = licenseList[i].name; }
+                }
+
+                // Lấy ngày lưu vào database
+                var dateDB = year + '-' + month + '-' + day;
+
+                // Kết quả bài thi
+                var noteDB = '';
+                if(note == 'Thi đạt') { noteDB = 'Đạt'; }
+                else { noteDB = 'Không đạt'; }
+
+                var resultFormDB = {
+                    'id': randromResultId,
+                    'userID': userRecord.id,
+                    'userName': userRecord.name,
+                    'level': licenseLevel,
+                    'licenseName': licenseName,
+                    'date': dateDB,
+                    'result': noteDB
+                }
+
+                console.log(resultFormDB);
+                // Lưu kết quả bài làm vào database
+                await db.createNewResult(resultFormDB);
 
                 // Trả kết quả về cho client
                 res.send(resultForm);

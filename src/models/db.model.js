@@ -20,6 +20,11 @@ async function getAllQuestion() {
   return rs;
 }
 
+async function getAllResult() {
+  const rs = await db.any('SELECT * FROM "result"');
+  return rs;
+}
+
 async function getOnlyUserAccount(type) {
   const rs = await db.one('SELECT * FROM "accounts" WHERE type = $1', [type]);
   return rs;
@@ -34,6 +39,11 @@ async function createNewUserAccount(user) {
   const rs = await db.one('INSERT INTO "accounts"(id, name, username, password, type) VALUES($1, $2, $3, $4, $5) RETURNING *', [user.id, user.name, user.username, user.password, user.type]);
 }
 
+async function createNewResult(result) {
+  const rs = await db.one('INSERT INTO "result"(id, "userID", "userName", level, "licenseName", date, result) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+    [result.id, result.userID, result.userName, result.level, result.licenseName, result.date, result.result]);
+}
+
 // async function deleteUser(user) {
 //   const rs = await db.one('DELETE FROM "Users" WHERE id = $1 RETURNING *', [user.id, user.username, user.password]);
 // }
@@ -44,4 +54,5 @@ async function createNewUserAccount(user) {
 
 module.exports = {
   getAllAccounts, createNewUserAccount, getOnlyUserAccount, getUserByUsername, getAllLicenses, getAllQuestion
+  , getAllResult, createNewResult
 }
