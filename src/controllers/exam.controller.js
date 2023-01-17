@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const { text } = require('express');
+const e = require('express');
 require('dotenv').config();
 
 function getRandomTextQuestion(min, max, list) {
@@ -69,9 +70,9 @@ function mergeTwoRandom(arr1, arr2) {
 
 function getContentQuestion(numberList, sourceList) {
     var resultList = [];
-    for(var i = 0; i < numberList.length; ++i) {
-        for(var j = 0; j < sourceList.length; ++j) {
-            if(sourceList[j].id == numberList[i]) {
+    for (var i = 0; i < numberList.length; ++i) {
+        for (var j = 0; j < sourceList.length; ++j) {
+            if (sourceList[j].id == numberList[i]) {
                 resultList.push(sourceList[j]);
             }
         }
@@ -182,15 +183,15 @@ class ExamController {
                     }
                     while (count < 15);
                     count = 0;
-                    
+
                     questionIdList = mergeTwoRandom(textList, imageList);
 
-                    console.log('Text size:', textList.length, 'Image size:', imageList.length); 
+                    // console.log('Text size:', textList.length, 'Image size:', imageList.length);
                     console.log('Question list:', questionIdList, 'length:', questionIdList.length, 'Only exist array:', checkOnlyExist(questionIdList));
 
                     targetQuestionList = getContentQuestion(questionIdList, questionList);
 
-                }              
+                }
 
                 examContent = {
                     'amount': 20,
@@ -208,15 +209,73 @@ class ExamController {
 
     async showExamConfirm(req, res, next) {
         try {
-            if(!req.isAuthenticated()) {
+            if (!req.isAuthenticated()) {
                 res.redirect('/');
             }
             else {
                 const userAnsList = req.body.ansList;
-                console.log('Server check:', userAnsList);
-                res.send('successfully');
+                const licenseLevel = req.body.level;
+                const userRecord = req.session.passport.user;
+                const dbList = await db.getAllQuestion();
+                var point = 0;
+                var eliminated = false;
+                const myDate = new Date();
+                const day = myDate.getDate();
+                const month = myDate.getMonth() + 1;
+                const year = myDate.getFullYear();
+                const examDay = day + '/' + month + '/' + year;
+                // console.log('Server check:', userAnsList);
+                // console.log(userRecord);
+
+                // Tính điểm kết quả
+                for (var i = 0; i < userAnsList.length; ++i) {
+                    for (var j = 0; j < dbList.length; ++j) {
+                        // Kiểm tra câu tra lời trong database
+                        if (parseInt(userAnsList[i].id) == dbList[j].id) {
+                            // Nếu là câu hỏi loại trực tiếp
+                            if (dbList[j].eliminated == 'YES') {
+                                if (userAnsList[i].ans == dbList[j].ans) {
+                                    console.log(parseInt(userAnsList[i].id), 'CORRECT');
+                                    ++point;
+                                }
+                                else { eliminated = true; }
+                            }
+                            else {
+                                if (userAnsList[i].ans == dbList[j].ans) {
+                                    console.log(parseInt(userAnsList[i].id), 'CORRECT');
+                                    ++point;
+                                }
+                                else { console.log(parseInt(userAnsList[i].id), 'WRONG'); }
+                            }
+                        }
+                    }
+
+                }
+
+                // Xét kết quả
+                var note = '';
+                if (licenseLevel == 'A1') {
+                    if (point < 21 && eliminated == false) { note = `Thi trượt, không đủ số câu quy định (${point}/25 câu)`; }
+                    if (eliminated == true) { note = `Thi trượt, sai câu hỏi loại trực tiếp`; }
+                    if (point >= 21 && eliminated == false) { note = 'Thi đạt'; }
+                }
+
+                // Kết quả
+                var resultForm = {
+                    'userID': userRecord.id,
+                    'userName': userRecord.name,
+                    'eliminated': eliminated,
+                    'date': examDay,
+                    'point': point,
+                    'note': note
+                }
+
+                console.log(resultForm);
+
+                // Trả kết quả về cho client
+                res.send(resultForm);
             }
-            
+
         } catch (error) {
             next(error);
         }
@@ -224,17 +283,17 @@ class ExamController {
 
     async showExamResult(req, res, next) {
         try {
-            if(!req.isAuthenticated()) {
+            if (!req.isAuthenticated()) {
                 res.redirect('/');
             }
             else {
-                console.log('Check req:', req.body);
+                console.log('Check req:', req.query);
 
                 res.render('viewResult', {
                     layout: 'mainResult',
                 })
             }
-            
+
         } catch (error) {
             next(error);
         }

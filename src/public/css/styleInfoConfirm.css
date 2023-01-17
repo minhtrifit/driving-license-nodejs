@@ -294,3 +294,12 @@ a {
 .submitBtn:hover {
     background-color: #a32c2e;
 }
+
+/* RESULT FORM */
+.right-content .middle .box .main .resultOption {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 20px;
+}

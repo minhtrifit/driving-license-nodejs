@@ -16,7 +16,7 @@ initPassportLocal();
 router.get('/:level', examRouter.showInfoConfirm);
 router.post('/:level', examRouter.showExam);
 router.post('/:level/result', examRouter.showExamConfirm);
-// router.use('/:level/result', examRouter.showExamResult);
+// router.get('/:level/testResult', examRouter.showExamResult);
 
 
 module.exports = router;

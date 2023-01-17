@@ -5,14 +5,17 @@ const examDate = document.querySelector('.date').id;
 const confirmBtn = document.querySelector('.confirmBtn');
 const examContent = document.querySelector('.box');
 const rightContent = document.querySelector('.right-content .middle');
+const slidebarContent = document.querySelector('.left-content .middle');
 
 confirmBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const targetUrl = `/exam/${licenseLevel}`;
+    const backupSlidebarContent = slidebarContent.innerHTML;
 
     examContent.innerHTML = '';
     examContent.style.width = '80%';
     examContent.style.height = '50%';
+    slidebarContent.innerHTML = '';
 
     $.ajax({
         url: targetUrl,
@@ -116,20 +119,54 @@ confirmBtn.addEventListener('click', (e) => {
 
                 var submitURL = `/exam/${licenseLevel}/result`;
 
-                // Gửi danh sách câu trả lời lên server
-                $.ajax({
-                    url: submitURL,
-                    type: 'POST',
-                    data: {
-                        'ansList': submitList,
-                    },
-                    success: (data) => {
-                        console.log('Post successfully!');
-                        console.log('Exam result:', data);
+                if (submitList.length == 0) { alert('Trả lời ít nhất 1 câu hỏi'); }
+                else {
+                    if (confirm('Xác nhận nộp bài?') == true) {
+                        // Gửi danh sách câu trả lời lên server
+                        $.ajax({
+                            url: submitURL,
+                            type: 'POST',
+                            data: {
+                                'level': licenseLevel,
+                                'ansList': submitList,
+                            },
+                            success: (data) => {
+                                console.log('Post successfully!');
 
-                        // window.location.href = submitURL;
+                                // Kết quả bài thi được gửi về từ server
+                                const result = data;
+                                console.log('Exam result:', result);
+
+                                // window.location.href = submitURL;
+                                // window.location.replace(`submitURL`);
+
+                                var resultLicenseName = licenseName;
+                                var resultLicenseLevel = licenseLevel;
+
+                                // Reset giao diện
+                                rightContent.innerHTML = '';
+                                slidebarContent.innerHTML = backupSlidebarContent;
+
+                                rightContent.innerHTML = `
+                                <div class="box">
+                                    <h3 style="text-align: center; font-weight: bold; margin-top: 20px; text-transform: uppercase;">KẾT QUẢ BÀI THI</h3>
+                                    <img src="../image/avatar.png" alt="">
+                                    <div class="main">
+                                        <p id="${result.userName}" class="userName">Họ và tên: ${result.userName}</p>
+                                        <p id="${result.userID}" class="userId">Số báo danh: ${result.userID}</p>
+                                        <p id="${resultLicenseName}" class="licenseName">Nội dung thi: ${resultLicenseName}</p>
+                                        <p id="${result.date}" class="date">Ngày thi: ${result.date}</p>
+                                        <p id="${result.point}" class="date" hidden>Điểm: ${result.point} (câu)</p>
+                                        <p id="${result.note}" class="date">Kết quả: ${result.note}</p>
+                                        <div class="resultOption">
+                                            <div class="confirmBtn"><a href="/dashboard">Xác nhận</a></div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                            }
+                        })
                     }
-                })
+                }
             })
 
         }
