@@ -15,6 +15,8 @@ initPassportLocal();
 // Route đăng nhập, đăng ký (Route mặc định là trang đăng nhập)
 router.get('/:level', examRouter.showInfoConfirm);
 router.post('/:level', examRouter.showExam);
+router.post('/:level/result', examRouter.showExamConfirm);
+// router.use('/:level/result', examRouter.showExamResult);
 
 
 module.exports = router;
