@@ -1,0 +1,33 @@
+<div class="right-content">
+    <div class="top">
+        <h3 style="text-align: center; font-weight: bold; margin-top: 20px;">LỊCH SỬ BÀI THI</h3>
+    </div>
+    <div class="middle">
+        <table id="historyTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Mã bài thi</th>
+                    <th>Mã số thí sinh</th>
+                    <th>Tên thí sinh</th>
+                    <th>Hạng bằng lái</th>
+                    <th>Tên bằng lái</th>
+                    <th>Ngày thi</th>
+                    <th>Kết quả</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each historyList}}
+                <tr>
+                    <td>{{ id }}</td>
+                    <td>{{ userID }}</td>
+                    <td>{{ userName }}</td>
+                    <td>{{ level }}</td>
+                    <td>{{ licenseName }}</td>
+                    <td>{{ examDay }}</td>
+                    <td>{{ result }}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

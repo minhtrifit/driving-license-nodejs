@@ -21,7 +21,7 @@ async function getAllQuestion() {
 }
 
 async function getAllResult() {
-  const rs = await db.any('SELECT * FROM "result"');
+  const rs = await db.any(`SELECT *, TO_CHAR(date, 'dd/mm/yyyy') "examDay" FROM "result"`);
   return rs;
 }
 
