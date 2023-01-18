@@ -60,7 +60,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* background-color: gray; */
+    background-color: gray;
 }
 
 .right-content .top .banner img {
@@ -115,21 +115,22 @@ body {
 
 .right-content .top {
     width: 100%;
-    min-height: 20%;
-    /* background-color: red; */
+    min-height: 25%;
+    background-color: red;
 }
 
 .right-content .middle {
     width: 100%;
-    min-height: 80%;
-    /* background-color: blue; */
+    min-height: 75%;
     display: flex;
     flex-direction: column;
+    /* background-color: blue; */
 }
 
 .swiper {
-    width: 90%;
-    height: 70%;
+    width: 85%;
+    height: 75%;
+    /* background-color: blue; */
 }
 
 .swiper-slide {
@@ -149,7 +150,7 @@ body {
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .swiper-slide:hover {
@@ -158,26 +159,28 @@ body {
 
 .swiper-slide .box img {
     display: block;
-    width: 70%;
-    height: 45%;
+    width: 60%;
+    height: 40%;
     object-fit: cover;
-    /* background-color: blue; */
+    /* border: 1px solid #000; */
 }
 
 .swiper-slide .box {
-    width: 100%;
-    height: 98%;
+    width: 95%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     /* background-color: red; */
 }
 
 .swiper-slide .box .title {
-    width: 90%;
-    min-height: 100px;
+    width: 80%;
+    min-height: 120px;
     margin-top: 10px;
+    font-size: 15px;
+    text-align: justify;
     /* background-color: green; */
 }
 
