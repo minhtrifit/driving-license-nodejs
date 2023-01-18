@@ -54,8 +54,8 @@ body {
 }
 
 .right-content .top .banner {
-    width: 75%;
-    height: 40%;
+    width: 45%;
+    height: 60%;
     margin: 20px auto;
     display: flex;
     justify-content: space-around;
@@ -64,8 +64,8 @@ body {
 }
 
 .right-content .top .banner img {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
 }
 
 .left-content .middle {
@@ -115,13 +115,13 @@ body {
 
 .right-content .top {
     width: 100%;
-    min-height: 25%;
-    background-color: red;
+    min-height: 30%;
+    /* background-color: red; */
 }
 
 .right-content .middle {
     width: 100%;
-    min-height: 75%;
+    min-height: 70%;
     display: flex;
     flex-direction: column;
     /* background-color: blue; */
