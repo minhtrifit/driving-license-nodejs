@@ -203,6 +203,6 @@ body {
 }
 
 .question-content .title img {
-    width: 150px;
+    min-width: 200px;
     max-height: 200px;
 }

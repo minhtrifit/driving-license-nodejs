@@ -48,6 +48,9 @@ class DocumentController {
                     }
                 }
 
+                questionList.sort((a, b) => a.id - b.id);
+                // console.log(questionList);
+
                 if(targetLevel == 'A1') {
                     res.render('viewDetailDocument', {
                         layout: 'mainDetailDocument',
@@ -95,7 +98,6 @@ class DocumentController {
                         targetQuestionList.push(questionList[i]);
                     }
                 }
-
 
                 res.send(targetQuestionList);
             }

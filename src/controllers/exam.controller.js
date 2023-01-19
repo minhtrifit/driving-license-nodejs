@@ -146,6 +146,8 @@ class ExamController {
                 var examContent;
                 var targetQuestionList = [];
 
+                // console.log(questionList);
+
                 // Lấy nội dung bằng lái
                 for (var i = 0; i < licenseList.length; ++i) {
                     if (licenseList[i].level == targetLevel) {
@@ -154,13 +156,13 @@ class ExamController {
                 }
 
                 // // Lấy danh sách câu hỏi
-                // for (var i = 30; i < questionList.length; ++i) {
+                // for (var i = 36; i < questionList.length; ++i) {
                 //     targetQuestionList.push(questionList[i]);
                 // }
 
                 // if (targetLevel == 'A1') {
                 //     examContent = {
-                //         'amount': 20,
+                //         'amount': 25,
                 //         'questions': targetQuestionList,
                 //     }
                 // }
@@ -173,7 +175,8 @@ class ExamController {
                 if (targetLevel == 'A1') {
                     // Random câu hỏi dạng hình
                     do {
-                        var randomID = getRandomImageQuestion(1, 50, questionList);
+                        var randomID = getRandomImageQuestion(1, 200, questionList);
+                        console.log('check id:', randomID);
                         if (!imageList.includes(randomID)) {
                             imageList.push(randomID);
                             ++count;
@@ -182,9 +185,9 @@ class ExamController {
                     while (count < 5);
                     count = 0;
 
-                    // Random câu hỏi dạng hình
+                    // Random câu hỏi dạng chữ
                     do {
-                        var randomID = getRandomTextQuestion(1, 50, questionList);
+                        var randomID = getRandomTextQuestion(1, 200, questionList);
                         if (!textList.includes(randomID)) {
                             textList.push(randomID);
                             ++count;
@@ -200,11 +203,11 @@ class ExamController {
 
                     targetQuestionList = getContentQuestion(questionIdList, questionList);
 
-                }
+                    examContent = {
+                        'amount': 25,
+                        'questions': targetQuestionList,
+                    }
 
-                examContent = {
-                    'amount': 25,
-                    'questions': targetQuestionList,
                 }
 
                 // Trả danh sách dữ liệu về cho client
@@ -305,7 +308,7 @@ class ExamController {
 
                 // Kết quả bài thi
                 var noteDB = '';
-                if(note == 'Thi đạt') { noteDB = 'Đạt'; }
+                if (note == 'Thi đạt') { noteDB = 'Đạt'; }
                 else { noteDB = 'Không đạt'; }
 
                 var resultFormDB = {
