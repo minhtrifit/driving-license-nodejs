@@ -47,7 +47,7 @@
     </div>
     <div class="middle">
         <p style="font-size: 25px; font-weight: bold; margin-left: 20px;">Danh sách tài liệu:</p>
-        <div class="main">
+        {{!-- <div class="main">
             {{#each license}}
             <a href="/document/{{ level }}">
                 <div class="block">
@@ -55,6 +55,19 @@
                 </div>
             </a>
             {{/each}}
+        </div> --}}
+        <div class="wrapper">
+            {{#each license}}
+            <a href="/document/{{ level }}">
+                <div class="card">
+                    <img src="image/document/{{ level }}.png" alt="">
+                    <div class="info">
+                        <p>Tài liệu {{ name }}</p>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
         </div>
     </div>
+</div>
 </div>

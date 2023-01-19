@@ -1,4 +1,5 @@
 const banner = document.querySelector('.banner');
+const nextBannerBtn = document.querySelector('.carousel-control-next');
 
 // Swiper init
 var swiper = new Swiper(".examListSwiper", {
@@ -11,14 +12,8 @@ var swiper = new Swiper(".examListSwiper", {
 });
 
 // Banner event
-function bannerSlide() {
-    var count = 1;
-    setInterval(() => {
-        if (count <= 5) { ++count; }
-        else { count = 1; }
-        banner.innerHTML = `<img src="image/banner/${count}.png" alt="">`;
-        console.log(count);
-    }, 3000)
+function bannerTransfer() {
+    setInterval(() => { nextBannerBtn.click(); }, 4000)
 }
 
-bannerSlide();
+bannerTransfer();
