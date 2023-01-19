@@ -244,7 +244,7 @@ a {
 }
 
 .swiper-slide .quiz {
-    width: 100%;
+    width: 95%;
     height: 45%;
     display: flex;
     flex-direction: column;
