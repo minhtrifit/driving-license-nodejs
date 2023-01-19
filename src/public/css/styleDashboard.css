@@ -54,13 +54,13 @@ body {
 }
 
 .right-content .top .banner {
-    width: 35%;
+    width: 46%;
     height: 50%;
     margin: 40px auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: gray;
+    /* background-color: gray; */
 }
 
 .right-content .top .banner img {
