@@ -7,7 +7,7 @@
 ## Step 1: Install all packages for app
 Using command: (Make sure you have opened terminal in the source folder)
 ~~~
-npm installed
+npm install
 ~~~
 
 ## Step 2: Import database script to your local postgresql
