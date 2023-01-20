@@ -16,7 +16,7 @@ Go to: src/config/dbConfig.js
 ## Step 4: Choose one command to run app
 + Run with nodemon:
 ~~~
-npm install
+npm start
 ~~~
 + Run without nodemon (run by javascript file):
 ~~~
