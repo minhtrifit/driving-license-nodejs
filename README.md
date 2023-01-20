@@ -5,7 +5,10 @@
 [Node](https://nodejs.org/en/)
 
 ## Step 1: Install all packages for app
-Using command: npm installed (Make sure you have opened terminal in the source folder)
+Using command: (Make sure you have opened terminal in the source folder)
+~~~
+npm installed
+~~~
 
 ## Step 2: Import database script to your local postgresql
 Use file: (Make sure you have created new database before)
