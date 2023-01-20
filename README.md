@@ -1,4 +1,4 @@
-# DRIVING LICENSE EXAM TUTORIAL
+> # DRIVING LICENSE EXAM TUTORIAL
 
 ### Make sure you have installed:
 [Postgresql](https://www.postgresql.org)<br>
@@ -14,8 +14,12 @@ Use file: db.sql (Make sure you have created new database before)
 Go to: src/config/dbConfig.js
 
 ## Step 4: Choose one command to run app
-Run with nodemon: npm install
-Run without nodemon (run javascript file): ./src/server.js
++ Run with nodemon: npm install<br>
++ Run without nodemon (run by javascript file):
+~~~
+cd .\src\
+node .\server.js
+~~~
 
 ## Step 5: Enjoy !
 
