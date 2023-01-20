@@ -8,10 +8,16 @@
 Using command: npm installed (Make sure you have opened terminal in the source folder)
 
 ## Step 2: Import database script to your local postgresql
-Use file: db.sql (Make sure you have created new database before)
+Use file: (Make sure you have created new database before)
+~~~
+db.sql
+~~~
 
 ## Step 3: Setting your local postgresql
-Go to: src/config/dbConfig.js
+Go to: 
+~~~
+src/config/dbConfig.js
+~~~
 
 ## Step 4: Choose one command to run app
 + Run with nodemon:
