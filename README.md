@@ -1,4 +1,6 @@
-> # DRIVING LICENSE EXAM TUTORIAL
+> # DRIVING LICENSE EXAM INFORMATION
+
+# I/ Installing Tutorial
 
 ### Make sure you have installed:
 [Postgresql](https://www.postgresql.org)<br>
@@ -38,7 +40,7 @@ node .\server.js
 
 ## Step 5: Enjoy !
 
-# *** Application Showcase ***
+# II/ Application Showcase
 
 ## Register Account Page:
 
