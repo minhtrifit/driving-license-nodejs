@@ -25,7 +25,7 @@ src/config/dbConfig.js
 ~~~
 
 ## Step 4: Choose one command to run app
-<<<<<<< HEAD
+
 + Run with nodemon: npm install<br>
 =======
 + Run with nodemon:
