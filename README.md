@@ -1,10 +1,12 @@
-> # DRIVING LICENSE EXAM INFORMATION
-
-# I. Installing Tutorial
+> # DRIVING LICENSE EXAM DOCUMENTATION
 
 ### Make sure you have installed:
 [Postgresql](https://www.postgresql.org)<br>
 [Node](https://nodejs.org/en/)
+
+***
+
+# I. Installing Tutorial
 
 ## Step 1: Install all packages for app
 Using command: (Make sure you have opened terminal in the source folder)
@@ -46,19 +48,27 @@ node .\server.js
 
 ![Register](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661133/driving%20license/register_jdc2ht.png)
 
+***
+
 ## Login Account Page:
 
 ![Login](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661134/driving%20license/login_kwbfs1.png)
 
+***
+
 ## Home Page:
 
 ![Home](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661135/driving%20license/home_uw30kk.png)
+
+***
 
 ## Document Page:
 
 ![Document](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661137/driving%20license/document2_u7yyxl.png)
 
 ![Document](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661131/driving%20license/document3_csdapt.png)
+
+***
 
 ## Quiz Training Page:
 
@@ -70,9 +80,13 @@ node .\server.js
 
 ![Quiz](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661132/driving%20license/quiz4_scmrti.png)
 
+***
+
 ## Result History Page:
 
 ![History](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661134/driving%20license/history_gwhvfe.png)
+
+***
 
 ## More: Checkout: [Youtube demo video](https://youtu.be/VMGRnCaCUBE)<br>
 
