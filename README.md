@@ -52,11 +52,15 @@ node .\server.js
 
 ## Register Account Page:
 
+* Account validation from database
+
 ![Register](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661133/driving%20license/register_jdc2ht.png)
 
 ***
 
 ## Login Account Page:
+
+* Passport local authentication
 
 ![Login](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661134/driving%20license/login_kwbfs1.png)
 
@@ -64,11 +68,15 @@ node .\server.js
 
 ## Home Page:
 
+* View all vehicle quiz
+
 ![Home](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661135/driving%20license/home_uw30kk.png)
 
 ***
 
 ## Document Page:
+
+* View all question and answer quiz per vehicle.
 
 ![Document](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661137/driving%20license/document2_u7yyxl.png)
 
@@ -77,6 +85,8 @@ node .\server.js
 ***
 
 ## Quiz Training Page:
+
+* Training like official test.
 
 ![Quiz](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661131/driving%20license/quiz_i1p6lh.png)
 
@@ -89,6 +99,8 @@ node .\server.js
 ***
 
 ## Result History Page:
+
+* Show user history results.
 
 ![History](https://res.cloudinary.com/dn2h31tcb/image/upload/v1696661134/driving%20license/history_gwhvfe.png)
 
